@@ -1,9 +1,13 @@
 <template>
   <v-app>
-    <v-container>
+    <v-container center class="container">
       <v-row id="top" align-content="center">
         <v-col xl="4" lg="4" md="4" class="d-none d-md-flex">
-          <prof :psfixed="true" @changeView="updateView" />
+          <prof
+            :psfixed="true"
+            style="margin-left:15px;"
+            @changeView="updateView"
+          />
         </v-col>
         <v-col :cols="12" class="d-md-none d-lg-none d-xl-none">
           <prof :psfixed="false" @changeView="updateView" />
@@ -19,7 +23,7 @@
         >
           <v-card
             v-if="isShowActivities == 1"
-            color="blue"
+            color="white"
             height="1200"
             :elevation="1"
           >
@@ -29,7 +33,7 @@
               <div>Live in Hiroshima from 2018/11-.</div>
             </v-card-text>
           </v-card>
-          <v-card v-else color="blue" height="1200" :elevation="1"></v-card>
+          <v-card v-else color="white" height="1200" :elevation="1"></v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -81,17 +85,4 @@ export default {
   }
 }
 </script>
-<style scoped>
-.prof {
-  align-items: center;
-  margin-top: 100px;
-  margin-right: auto;
-  margin-left: auto;
-  position: fixed;
-}
-.prof2 {
-  background-color: darkred;
-  align-items: center;
-  margin: auto;
-}
-</style>
+<style scoped></style>

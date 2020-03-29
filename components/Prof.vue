@@ -1,6 +1,6 @@
 <template>
   <v-card
-    height="400"
+    height="370"
     width="250"
     :elevation="1"
     app
@@ -15,14 +15,14 @@
     <v-card-title class="pb-0">Masahiro Akita</v-card-title>
     <v-card-text class="text--primary">
       <div>Software Engineer</div>
-      <div>From Saitama, now live in Hiroshima.</div>
+      <div>Now live in Hiroshima.</div>
     </v-card-text>
     <v-card-actions>
       <div @click="showActvView">
-        <v-btn color="orange" text>Activities</v-btn>
+        <v-btn color="green" text :style="selectActvStyle()">Activities</v-btn>
       </div>
       <div @click="showAbutMeView">
-        <v-btn color="orange" text>About Me</v-btn>
+        <v-btn color="green" text :style="selectAbutmStyle()">About Me</v-btn>
       </div>
     </v-card-actions>
   </v-card>
@@ -35,18 +35,39 @@ export default {
       default: true
     }
   },
+  data() {
+    return {
+      isShowActivities: 1
+    }
+  },
   methods: {
     showActvView() {
       this.$emit('changeView', 'actv')
+      this.isShowActivities = 1
     },
     showAbutMeView() {
       this.$emit('changeView', 'abutme')
+      this.isShowActivities = 0
     },
     useClass(event) {
       if (this.psfixed === true) {
         return 'position:fixed; margin-top:100px;'
       } else {
         return ''
+      }
+    },
+    selectActvStyle(event) {
+      if (this.isShowActivities === 1) {
+        return 'border-style: solid; border-color: green;'
+      } else {
+        return 'border-style: solid; border-color: white;'
+      }
+    },
+    selectAbutmStyle(event) {
+      if (this.isShowActivities === 0) {
+        return 'border-style: solid; border-color: green;'
+      } else {
+        return 'border-style: solid; border-color: white;'
       }
     }
   }

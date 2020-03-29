@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <div>
       <nuxt />
     </div>
@@ -33,3 +33,8 @@ export default {
   }
 }
 </script>
+<style>
+.wrap_nuxt {
+  background-color: royalblue;
+}
+</style>
