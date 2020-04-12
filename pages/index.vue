@@ -3,9 +3,24 @@
     <v-container center class="container">
       <v-row id="top" align-content="center">
         <v-col xl="4" lg="4" md="4" class="d-none d-md-flex">
+          <vue-typed-js
+            :strings="[
+              'Hello,\n',
+              'Hello,\nThis is My Portforio.',
+              'Hello,\nThis is My Portfo',
+              'Hello,\nThis is My Portfolio!'
+            ]"
+            :typeSpeed="100"
+            :startDelay="100"
+            :showCursor="false"
+            class="typed"
+            style="white-space: pre"
+          >
+            <h1 class="typing"></h1>
+          </vue-typed-js>
           <prof
             :psfixed="true"
-            style="margin-left:15px;"
+            style="margin-left:40px;"
             @changeView="updateView"
           />
         </v-col>
@@ -21,19 +36,50 @@
           :elevation="1"
           style="margin: auto"
         >
-          <v-card
+          <v-sheet
             v-if="isShowActivities == 1"
-            color="white"
             height="1200"
+            color="teal lighten-4"
             :elevation="1"
           >
-            <v-card-text class="text--primary">
-              <div>{{ isShowActivities }}</div>
-              <div>{{ mess }}</div>
-              <div>Live in Hiroshima from 2018/11-.</div>
-            </v-card-text>
-          </v-card>
-          <v-card v-else color="white" height="1200" :elevation="1"></v-card>
+            <v-container>
+              <v-row dense>
+                <v-col cols="12">
+                  <v-card
+                    width="90%"
+                    height="200"
+                    :elevation="1"
+                    style="margin:auto; font-size:10px;"
+                    color="white"
+                  >
+                    <v-card-text class="text--primary">
+                      <div style="font-size:20px;">
+                        Live in Hiroshima from 2018/11-.
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                <v-col cols="12">
+                  <v-spacer></v-spacer>
+                </v-col>
+                <v-col cols="12">
+                  <v-card
+                    width="90%"
+                    height="200"
+                    :elevation="1"
+                    style="margin:auto; font-size:10px;"
+                  >
+                    <v-card-text class="text--primary">
+                      <div style="font-size:20px;">
+                        Live in Hiroshima from 2018/11-.
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-sheet>
+          <v-sheet v-else color="white" height="1200" :elevation="1"></v-sheet>
         </v-col>
       </v-row>
     </v-container>
@@ -85,4 +131,14 @@ export default {
   }
 }
 </script>
-<style scoped></style>
+<style scoped>
+.typed {
+  align-items: center;
+  margin-top: 5px;
+  margin-right: auto;
+  margin-left: auto;
+  position: fixed;
+  color: white;
+  font-size: 14px;
+}
+</style>

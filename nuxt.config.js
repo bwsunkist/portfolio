@@ -33,7 +33,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/vue-scrollto'
+    '~/plugins/vue-scrollto',
+    '~/plugins/vue-typed'
   ],
   /*
    ** Nuxt.js dev-modules

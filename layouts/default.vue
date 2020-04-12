@@ -33,8 +33,3 @@ export default {
   }
 }
 </script>
-<style>
-.wrap_nuxt {
-  background-color: royalblue;
-}
-</style>
