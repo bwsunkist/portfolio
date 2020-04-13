@@ -5,12 +5,12 @@
         <v-col xl="4" lg="4" md="4" class="d-none d-md-flex">
           <vue-typed-js
             :strings="[
-              'Hello,\n',
               'Hello,\nThis is My Portforio.',
               'Hello,\nThis is My Portfo',
               'Hello,\nThis is My Portfolio!'
             ]"
             :typeSpeed="100"
+            :backSpeed="100"
             :startDelay="100"
             :showCursor="false"
             class="typed"
@@ -45,19 +45,7 @@
             <v-container>
               <v-row dense>
                 <v-col cols="12">
-                  <v-card
-                    width="90%"
-                    height="200"
-                    :elevation="1"
-                    style="margin:auto; font-size:10px;"
-                    color="white"
-                  >
-                    <v-card-text class="text--primary">
-                      <div style="font-size:20px;">
-                        Live in Hiroshima from 2018/11-.
-                      </div>
-                    </v-card-text>
-                  </v-card>
+                  <qi />
                 </v-col>
                 <v-col cols="12">
                   <v-spacer></v-spacer>
@@ -101,10 +89,12 @@
 </template>
 <script>
 import prof from '~/components/Prof.vue'
+import qi from '~/components/Qiitacard.vue'
 
 export default {
   components: {
-    prof
+    prof,
+    qi
   },
   data() {
     return {

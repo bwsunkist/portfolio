@@ -13,7 +13,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "nuxt": "^2.0.0",
+    "nuxt-fontawesome": "^0.4.0",
     "vue-scrollto": "^2.17.1",
     "vue-typed-js": "^0.1.2"
   },
