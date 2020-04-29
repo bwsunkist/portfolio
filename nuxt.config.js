@@ -19,9 +19,12 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     link: [
-      { rel: "stylesheet", href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css"}
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
+      }
     ]
-},
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -29,16 +32,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '@/assets/main'
-  ],
+  css: ['@/assets/main'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/vue-scrollto',
-    '~/plugins/vue-typed'
-  ],
+  plugins: ['~/plugins/vue-scrollto', '~/plugins/vue-typed'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -50,9 +48,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    'nuxt-fontawesome'
-  ],
+  modules: ['nuxt-fontawesome', '@nuxtjs/axios'],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

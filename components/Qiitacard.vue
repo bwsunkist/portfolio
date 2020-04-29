@@ -1,7 +1,7 @@
 <template>
   <v-card
-    width="90%"
-    height="200"
+    width="95%"
+    height="auto"
     :elevation="1"
     style="margin:auto; font-size:10px;"
     color="white"
@@ -14,13 +14,13 @@
       Qiita
     </v-card-title>
     <v-card-text class="text--primary">
-      <div>
+      <div v-for="(item, id) in qitems" :key="id" class="qiitarecord">
         <div class="qiitadate">
-          2020-3-30
+          {{ item.created_at.substr(0, 10) }}
         </div>
         <div class="qiitatitle">
-          <a href="https://qiita.com/MasahiroBW/items/46bd48d0c4c8956d8665">
-            [Vuetify]theme利用時の背景色を変更する
+          <a :href="item.url">
+            {{ item.title }}
           </a>
         </div>
       </div>
@@ -28,7 +28,21 @@
   </v-card>
 </template>
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  data() {
+    return {
+      test: 'test text',
+      items: [
+        { title: 'aaa', url: 'aaa' },
+        { title: 'bbb', url: 'bbb' }
+      ]
+    }
+  },
+  computed: {
+    ...mapState('qiita', ['qitems', 'qitemsex'])
+  }
+}
 </script>
 <style scoped>
 .qiitadate {
@@ -37,7 +51,11 @@ export default {}
   margin-right: 5px;
 }
 .qiitatitle {
-  font-size: 20px;
+  font-size: 18px;
   display: inline;
+}
+.qiitarecord {
+  display: block;
+  margin-bottom: 5px;
 }
 </style>

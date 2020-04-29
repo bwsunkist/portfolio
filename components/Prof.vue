@@ -14,7 +14,7 @@
       height="200px"
       :src="require('@/assets/prof.jpg')"
     ></v-img>
-    <v-card-title class="cardtitle">Masahiro Akita</v-card-title>
+    <v-card-title class="cardtitle">bwsunkist</v-card-title>
     <v-card-text class="text--primary">
       <div class="cardtext">Software Engineer</div>
       <div class="cardtext">Now live in Hiroshima.</div>

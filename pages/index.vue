@@ -9,10 +9,10 @@
               'Hello,\nThis is My Portfo',
               'Hello,\nThis is My Portfolio!'
             ]"
-            :typeSpeed="100"
-            :backSpeed="100"
-            :startDelay="100"
-            :showCursor="false"
+            :type-speed="100"
+            :back-speed="100"
+            :start-delay="100"
+            :show-cursor="false"
             class="typed"
             style="white-space: pre"
           >
@@ -45,7 +45,7 @@
             <v-container>
               <v-row dense>
                 <v-col cols="12">
-                  <qi />
+                  <qi :qitems="qitems" />
                 </v-col>
                 <v-col cols="12">
                   <v-spacer></v-spacer>
@@ -99,8 +99,12 @@ export default {
   data() {
     return {
       isShowActivities: 1,
-      mess: 'no event'
+      mess: 'no event',
+      qitems: []
     }
+  },
+  async fetch({ store, params }) {
+    await store.dispatch('qiita/getqiitapost')
   },
   methods: {
     updateView(newView) {
