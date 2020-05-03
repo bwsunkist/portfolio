@@ -17,7 +17,7 @@ export const mutations = {
     state.acitemsisfetching = false
     state.acitems = acitems
   },
-  [actype.GET_POSTS_REQUEST](state, err) {
+  [actype.GET_POSTS_FAILURE](state, err) {
     state.acitemsisfetching = false
     state.acitems = null
     state.err = err

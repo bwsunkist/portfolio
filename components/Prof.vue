@@ -9,10 +9,18 @@
     flat
     color="teal darken-4"
   >
+    <v-skeleton-loader
+      class="mx-auto"
+      height="200px"
+      type="image"
+      v-if="(loadcomplete = false)"
+    ></v-skeleton-loader>
     <v-img
       class="white--text align-end"
       height="200px"
       :src="require('@/assets/prof.jpg')"
+      v-else
+      @load="loadd"
     ></v-img>
     <v-card-title class="cardtitle">bwsunkist</v-card-title>
     <v-card-text class="text--primary">
@@ -40,7 +48,8 @@ export default {
   },
   data() {
     return {
-      isShowActivities: 1
+      isShowActivities: 1,
+      loadcomplete: false
     }
   },
   methods: {
@@ -72,6 +81,9 @@ export default {
       } else {
         return 'border-style: solid; border-color: #004D40;'
       }
+    },
+    loadd(event) {
+      this.loadcomplete = true
     }
   }
 }

@@ -6,8 +6,10 @@ export default {
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    // titleTemplate: '%s - ' + process.env.npm_package_name,
+    // title: process.env.npm_package_name || '',
+    titleTemplate: 'bwsunkist - portfolio',
+    title: 'bwsunkist - portfolio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,8 +19,10 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     link: [
+      { 
+        rel: 'icon', type: 'image/jpeg', href: '/prof.jpg' 
+      },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.6.1/css/all.css'
@@ -28,7 +32,15 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
+  loadingIndicator: '@/assets/loadingind.html',
+  //   name: 'pulse',
+  //   color: '#FFF',
+  //   background: '#004D40'
+  // },
   /*
    ** Global CSS
    */
@@ -48,7 +60,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['nuxt-fontawesome', '@nuxtjs/axios'],
+  modules: ['nuxt-fontawesome', '@nuxtjs/axios', '@nuxtjs/proxy'],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -70,6 +82,14 @@ export default {
         }
       }
     }
+  },
+  proxy: {
+    '/api': {
+      target: 'scrapbox.io/',
+      pathRewrite: {
+        '^/api/pages/itall' : '/api/pages/itall'
+        }
+      }
   },
   /*
    ** Build configuration

@@ -15,7 +15,7 @@ export const mutations = {
     state.sbitemsisfetching = false
     state.sbitems = sbitems
   },
-  [sbtype.GET_POSTS_REQUEST](state, err) {
+  [sbtype.GET_POSTS_FAILURE](state, err) {
     state.sbitemsisfetching = false
     state.sbitems = null
     state.err = err

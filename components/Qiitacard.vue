@@ -16,13 +16,21 @@
     <v-card-text class="text--primary">
       <div v-for="(item, id) in qitems" :key="id" class="qiitarecord">
         <div class="qiitadate">
-          {{ item.created_at.substr(0, 10) }}
+          {{ item.created_at }}
         </div>
         <div class="qiitatitle">
           <a :href="item.url">
             {{ item.title }}
           </a>
         </div>
+      </div>
+      <div class="moreInfo">
+        <a :href="homeurl">
+          <span class="fa-stack">
+            <i class="fa fa-arrow-right"></i>
+          </span>
+          Show More
+        </a>
       </div>
     </v-card-text>
   </v-card>
@@ -32,15 +40,11 @@ import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      test: 'test text',
-      items: [
-        { title: 'aaa', url: 'aaa' },
-        { title: 'bbb', url: 'bbb' }
-      ]
+      homeurl: 'https://qiita.com/MasahiroBW'
     }
   },
   computed: {
-    ...mapState('qiita', ['qitems', 'qitemsex'])
+    ...mapState('qiita', ['qitems'])
   }
 }
 </script>
@@ -57,5 +61,14 @@ export default {
 .qiitarecord {
   display: block;
   margin-bottom: 5px;
+}
+.moreInfo {
+  font-size: 15px;
+  text-align: right;
+  margin-right: 20px;
+}
+.moreInfo a {
+  color: black;
+  text-decoration: none;
 }
 </style>

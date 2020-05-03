@@ -16,7 +16,7 @@ export const mutations = {
     state.gitemsisfetching = false
     state.gitems = gitems
   },
-  [gtype.GET_POSTS_REQUEST](state, err) {
+  [gtype.GET_POSTS_FAILURE](state, err) {
     state.gitemsisfetching = false
     state.gitems = null
     state.err = err

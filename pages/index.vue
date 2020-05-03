@@ -23,9 +23,29 @@
             style="margin-left:40px;"
             @changeView="updateView"
           />
+          <a href="https://github.com/bwsunkist" class="gitlink">
+            <span class="fa-stack">
+              <i class="fab fa-github fa-2x" style="color:#FFF"></i>
+            </span>
+          </a>
+          <a href="https://twitter.com/BlueWhite_m" class="twlink">
+            <span class="fa-stack">
+              <i class="fab fa-twitter-square fa-2x" style="color:#FFF"></i>
+            </span>
+          </a>
         </v-col>
         <v-col :cols="12" class="d-md-none d-lg-none d-xl-none">
           <prof :psfixed="false" @changeView="updateView" />
+          <a href="https://github.com/bwsunkist" class="gitlink-s">
+            <span class="fa-stack">
+              <i class="fab fa-github fa-2x" style="color:#FFF"></i>
+            </span>
+          </a>
+          <a href="https://twitter.com/BlueWhite_m" class="twlink-s">
+            <span class="fa-stack">
+              <i class="fab fa-twitter-square fa-2x" style="color:#FFF"></i>
+            </span>
+          </a>
         </v-col>
         <v-col
           :cols="12"
@@ -38,36 +58,36 @@
         >
           <v-sheet
             v-if="isShowActivities == 1"
-            height="1200"
+            height="auto"
             color="teal lighten-4"
             :elevation="1"
           >
             <v-container>
               <v-row dense>
                 <v-col cols="12">
-                  <qi :qitems="qitems" />
+                  <git />
+                </v-col>
+                <v-col cols="12">
+                  <qi />
                 </v-col>
                 <v-col cols="12">
                   <v-spacer></v-spacer>
                 </v-col>
                 <v-col cols="12">
-                  <v-card
-                    width="90%"
-                    height="200"
-                    :elevation="1"
-                    style="margin:auto; font-size:10px;"
-                  >
-                    <v-card-text class="text--primary">
-                      <div style="font-size:20px;">
-                        Live in Hiroshima from 2018/11-.
-                      </div>
-                    </v-card-text>
-                  </v-card>
+                  <sb />
+                </v-col>
+                <v-col cols="12">
+                  <v-spacer></v-spacer>
+                </v-col>
+                <v-col cols="12">
+                  <ac />
                 </v-col>
               </v-row>
             </v-container>
           </v-sheet>
-          <v-sheet v-else color="white" height="1200" :elevation="1"></v-sheet>
+          <v-sheet v-else color="teal lighten-4" height="auto" :elevation="1">
+            <abtm />
+          </v-sheet>
         </v-col>
       </v-row>
     </v-container>
@@ -90,21 +110,31 @@
 <script>
 import prof from '~/components/Prof.vue'
 import qi from '~/components/Qiitacard.vue'
+import sb from '~/components/Scrapboxcard.vue'
+import ac from '~/components/Atcodercard.vue'
+import git from '~/components/Gitcard.vue'
+import abtm from '~/components/Aboutme.vue'
 
 export default {
   components: {
     prof,
-    qi
+    qi,
+    sb,
+    ac,
+    git,
+    abtm
   },
   data() {
     return {
       isShowActivities: 1,
-      mess: 'no event',
-      qitems: []
+      mess: 'no event'
     }
   },
   async fetch({ store, params }) {
     await store.dispatch('qiita/getqiitapost')
+    // await store.dispatch('scrapbox/getscrapboxpost')
+    await store.dispatch('atcoder/getatcoderpost')
+    await store.dispatch('git/getgitpost')
   },
   methods: {
     updateView(newView) {
@@ -134,5 +164,38 @@ export default {
   position: fixed;
   color: white;
   font-size: 14px;
+}
+.gitlink {
+  align-items: center;
+  margin-top: 470px;
+  margin-right: auto;
+  margin-left: 180px;
+  position: fixed;
+  color: white;
+  font-size: 22px;
+}
+.twlink {
+  align-items: center;
+  margin-top: 470px;
+  margin-right: auto;
+  margin-left: 240px;
+  position: fixed;
+  color: white;
+  font-size: 22px;
+}
+.gitlink-s {
+  display: inline-block;
+  align-items: center;
+  margin-right: auto;
+  margin-left: 180px;
+  color: white;
+  font-size: 22px;
+}
+.twlink-s {
+  display: inline-block;
+  align-items: center;
+  margin-right: auto;
+  color: white;
+  font-size: 22px;
 }
 </style>
